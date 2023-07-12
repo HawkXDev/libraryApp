@@ -14,9 +14,12 @@ public class Person {
 
     @NotEmpty(message = "Year of birth cannot be empty")
     @Pattern(regexp = "^\\d{4}$", message = "Year of birth must be a four digit")
-    private int yearOfBirth;
+    private String yearOfBirth;
 
-    public Person(int id, String name, int yearOfBirth) {
+    public Person() {
+    }
+
+    public Person(int id, String name, String yearOfBirth) {
         this.id = id;
         this.name = name;
         this.yearOfBirth = yearOfBirth;
@@ -38,11 +41,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getYearOfBirth() {
+    public String getYearOfBirth() {
         return yearOfBirth;
     }
 
-    public void setYearOfBirth(int yearOfBirth) {
+    public void setYearOfBirth(String yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
 }

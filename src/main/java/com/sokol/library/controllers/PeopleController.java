@@ -34,7 +34,7 @@ public class PeopleController {
     }
 
     @GetMapping("/new")
-    public String newPerson(@ModelAttribute("person") @Valid Person person) {
+    public String newPerson(@ModelAttribute("person") Person person) {
         return "people/new";
     }
 
