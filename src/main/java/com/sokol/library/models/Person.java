@@ -9,7 +9,7 @@ public class Person {
     private int id;
 
     @NotEmpty(message = "Name cannot be empty")
-    @Size(min = 3, max = 30, message = "Name must be between 3 and 30 characters")
+    @Size(min = 4, max = 30, message = "Name must be between 3 and 30 characters")
     private String name;
 
     @NotEmpty(message = "Year of birth cannot be empty")

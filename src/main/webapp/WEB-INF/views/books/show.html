@@ -18,7 +18,7 @@
         </select>
 
         <input name="book_id" type="text" th:value="${book.getId()}" hidden>
-        <input type="submit" value="Assign a book:">
+        <input type="submit" value="Assign a book">
     </form>
 </div>
 
@@ -34,8 +34,11 @@
 <br>
 <hr>
 
-<a th:href="@{books/{id}/edit(id=${book.getId()})}">Edit</a><br>
-<a th:href="@{books/{id}/delete(id=${book.getId()})}">Delete</a>
+<a th:href="@{/books/{id}/edit(id=${book.getId()})}">Edit</a><br>
+
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+    <input type="submit" value="Delete">
+</form>
 
 </body>
 </html>
