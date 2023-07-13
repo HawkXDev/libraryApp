@@ -33,7 +33,7 @@ public class BookDAO {
                 new BeanPropertyRowMapper<>(Book.class)).stream().findAny();
     }
 
-    public void setPersonId(int bookId, int personId) {
+    public void setPersonId(int bookId, Integer personId) {
         jdbcTemplate.update("UPDATE book SET person_id =? WHERE id =?", personId, bookId);
     }
 }

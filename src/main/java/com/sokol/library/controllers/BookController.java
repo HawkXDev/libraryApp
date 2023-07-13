@@ -52,6 +52,10 @@ public class BookController {
         if (book.isPresent()) {
             model.addAttribute("book", book.get());
             model.addAttribute("people", personDAO.findAll());
+            if (book.get().getPerson_id() != null) {
+                Optional<Person> person = personDAO.get(book.get().getPerson_id());
+                person.ifPresent(p -> model.addAttribute("person", p));
+            }
             return "books/show";
         } else {
             return "redirect:/books";
@@ -68,6 +72,12 @@ public class BookController {
             return "redirect:/books";
         }
         return null;
+    }
+
+    @PatchMapping("/free")
+    public String free(@RequestParam("book_id") int bookId) {
+        bookDAO.setPersonId(bookId, null);
+        return "redirect:/books";
     }
 
 }

@@ -22,6 +22,15 @@
     </form>
 </div>
 
+<div th:unless="${book.getPerson_id() == null}">
+    <p th:text="'This book is assigned to: ' + ${person.getName()}"></p>
+
+    <form th:method="PATCH" th:action="@{/books/free}">
+        <input name="book_id" type="text" th:value="${book.getId()}" hidden>
+        <input type="submit" value="Free the book">
+    </form>
+</div>
+
 <br>
 <hr>
 
