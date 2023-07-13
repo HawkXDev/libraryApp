@@ -48,4 +48,13 @@ public class Person {
     public void setYearOfBirth(String yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", yearOfBirth='" + yearOfBirth + '\'' +
+                '}';
+    }
 }

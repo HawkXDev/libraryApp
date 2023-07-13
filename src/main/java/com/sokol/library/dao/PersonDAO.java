@@ -32,4 +32,10 @@ public class PersonDAO {
         jdbcTemplate.update("INSERT INTO person (name, year_of_birth) VALUES (?,?)",
                 person.getName(), person.getYearOfBirth());
     }
+
+    public Optional<Person> get(int id) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE id =?", new Object[]{id},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
+    }
+
 }
